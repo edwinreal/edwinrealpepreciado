@@ -191,8 +191,8 @@ if (numeroIngresado === numeroIncognita) {
 }
 
 
-// ejercios 8#
-console.log( "ejercio 8")
+// ejercios 9#
+console.log( "ejercio 9")
 
 let edad3 = parseInt(prompt("Ingresa tu edad"))
 
@@ -212,6 +212,98 @@ else if (edad3 >= 100){
     console.log("De verdad tienes esa edad")
 
 }
+
+
+// ejercios 10#
+console.log( "ejercio 10")
+
+console.log("Bienvenidos al juego de Piedra, Papel o Tijeras");
+
+let jugador1 = prompt("Jugador 1, ingresa tu elección (PIEDRA, PAPEL o TIJERAS): ").toUpperCase();
+let jugador2 = prompt("Jugador 2, ingresa tu elección (PIEDRA, PAPEL o TIJERAS): ").toUpperCase();
+
+if (!["PIEDRA", "PAPEL", "TIJERAS"].includes(jugador1) || !["PIEDRA", "PAPEL", "TIJERAS"].includes(jugador2)) {
+    console.log("Uno de los jugadores hizo un movimiento incorrecto.");
+} else {
+    if (jugador1 === jugador2) {
+        console.log("Empate");
+    } else if ((jugador1 === "PIEDRA" && jugador2 === "TIJERAS") ||
+               (jugador1 === "PAPEL" && jugador2 === "PIEDRA") ||
+               (jugador1 === "TIJERAS" && jugador2 === "PAPEL")) {
+        console.log("El ganador es: Jugador 1");
+    } else if ((jugador2 === "PIEDRA" && jugador1 === "TIJERAS") ||
+               (jugador2 === "PAPEL" && jugador1 === "PIEDRA") ||
+               (jugador2 === "TIJERAS" && jugador1 === "PAPEL")) {
+        console.log("El ganador es: Jugador 2");
+    } else {
+        console.log("Uno de los jugadores hizo trampa");
+    }
+}
+
+
+// ejercios 11#
+console.log( "ejercio 11") 
+
+let color = prompt("Ingrese un color: ").toLowerCase();
+
+switch(color) {
+    case "blanco":
+    case "negro":
+        console.log("Falta de color");
+        break;
+    case "verde":
+        console.log("El color de la naturaleza");
+        break;
+    case "azul":
+        console.log("El color del agua");
+        break;
+    case "amarillo":
+        console.log("El color del sol");
+        break;
+    case "rojo":
+        console.log("El color del fuego");
+        break;
+    case "marrón":
+        console.log("El color de la tierra");
+        break;
+    default:
+        console.log("Excelente elección, no lo teníamos pensado");
+}
+
+
+
+// ejercios 12#
+console.log( "ejercio 12") 
+let numero12 = parseFloat(prompt("Ingrese el primer número: "));
+let numero22 = parseFloat(prompt("Ingrese el segundo número: "));
+let operacion = prompt("Ingrese la operación a realizar (suma, resta, multiplicación, división): ").toLowerCase();
+let resultado;
+
+switch (operacion) {
+    case "suma":
+        resultado = numero12 + numero22;
+        console.log("La suma es:", resultado);
+        break;
+    case "resta":
+        resultado = numero12 - numero22;
+        console.log("La resta es:", resultado);
+        break;
+    case "multiplicación":
+        resultado = numero12 * numero22;
+        console.log("La multiplicación es:", resultado);
+        break;
+    case "división":
+        if (numero2 !== 0) {
+            resultado = numero12/ numero22;
+            console.log("La división es:", resultado);
+        } else {
+            console.log("ERROR: No se puede dividir por cero.");
+        }
+        break;
+    default:
+        console.log("Operación no reconocida.");
+}
+
 
 
 
