@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 400px;
+    width:200px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border: solid;
+    background-image: url(bmi.jpg);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 15px 15px 10px 0.5px;
+    border-radius: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+}
+
+div {
+    margin-bottom: 10px;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+}
+
+input[type="number"] {
+    width: 200px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
