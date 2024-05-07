@@ -1,15 +1,15 @@
 function convertir() {
-    var cantidad = parseFloat(document.getElementById('amount').value);
-    var fromCurrency = document.getElementById('fromCurrency').value;
-    var toCurrency = document.getElementById('toCurrency').value;
+    let cantidad = parseFloat(document.getElementById('amount').value);
+    let fromCurrency = document.getElementById('fromCurrency').value;
+    let toCurrency = document.getElementById('toCurrency').value;
 
     // Definir tasas de conversión
-    var tasaUSD = 1;
-    var tasaCOP = 140; // Ejemplo: 1 USD = 140 COP
-    var tasaEUR = 0.82; // Ejemplo: 1 USD = 0.82 EUR
+    let tasaUSD = 1;
+    let tasaCOP = 140; // Ejemplo: 1 USD = 140 COP
+    let tasaEUR = 0.82; // Ejemplo: 1 USD = 0.82 EUR
 
     // Realizar la conversión
-    var resultado;
+    let resultado;
     if (fromCurrency === 'USD' && toCurrency === 'COP') {
         resultado = cantidad * tasaCOP;
     } else if (fromCurrency === 'USD' && toCurrency === 'EUR') {
