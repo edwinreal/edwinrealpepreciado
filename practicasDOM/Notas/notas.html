@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Notas</title>
+    <link rel="shortcut icon" href="logonote.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aplicación de Notas</h1>
+        <div class="new-note">
+            <input type="text" id="title" placeholder="Título">
+            <textarea class="textarea" id="text" placeholder="Texto"></textarea>
+            <button onclick="saveNote()">Guardar</button>
+            <button onclick="clearFields()">Limpiar</button>
+        </div>
+        <input class="buscador" type="text" id="search" placeholder="Buscar nota..." oninput="filterNotes()">
+        <div id="notes-container"></div>
+    </div>
+    <script src="notas.js"></script>
+</body>
+</html>
