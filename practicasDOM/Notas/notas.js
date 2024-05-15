@@ -1,4 +1,3 @@
-let idGlobal = 0;
 let notes = [];
 
 function renderNotes(filteredNotes) {
@@ -16,6 +15,7 @@ function renderNotes(filteredNotes) {
                     <h3>${note.title}</h3>
                     <p>${note.text}</p>
                     <input type="checkbox" onclick="toggleCompleted(${note.id})" ${note.completed ? 'checked' : ''}> Realizada
+                    <button onclick="editNote(${note.id})">Editar nota</button>
                     <button onclick="deleteNote(${note.id})">Borrar nota</button>
                 </div>
             `;
@@ -31,14 +31,22 @@ function saveNote() {
     const text = textArea.value.trim();
 
     if (title !== '' && text !== '') {
-        const note = { id: idGlobal++, title, text, completed: false };
+        const note = { id: Date.now(), title, text, completed: false }; // Usar un timestamp como id
         notes.push(note);
+        saveNotesToLocalStorage(); // Guardar notas en el almacenamiento local
         renderNotes();
-        titleInput.value = '';
-        textArea.value = '';
+        clearFields();
     } else {
         alert('Por favor, completa tanto el título como el texto de la nota.');
     }
+}
+
+function editNote(id) {
+    const noteToEdit = notes.find(note => note.id === id);
+    const titleInput = document.getElementById('title');
+    const textArea = document.getElementById('text');
+    titleInput.value = noteToEdit.title;
+    textArea.value = noteToEdit.text;
 }
 
 function clearFields() {
@@ -48,12 +56,14 @@ function clearFields() {
 
 function deleteNote(id) {
     notes = notes.filter(note => note.id !== id);
+    saveNotesToLocalStorage(); // Actualizar las notas en el almacenamiento local después de eliminar
     renderNotes();
 }
 
 function toggleCompleted(id) {
     const note = notes.find(note => note.id === id);
     note.completed = !note.completed;
+    saveNotesToLocalStorage(); // Actualizar las notas en el almacenamiento local después de cambiar el estado completado
     renderNotes();
 }
 
@@ -66,6 +76,19 @@ function filterNotes() {
     renderNotes(filteredNotes);
 }
 
+function saveNotesToLocalStorage() {
+    localStorage.setItem('notes', JSON.stringify(notes)); // Guardar notas en el almacenamiento local
+}
+
+function loadNotesFromLocalStorage() {
+    const savedNotes = localStorage.getItem('notes');
+    if (savedNotes) {
+        notes = JSON.parse(savedNotes); // Cargar notas del almacenamiento local
+        renderNotes();
+    }
+}
+
 window.onload = function() {
-    renderNotes();
+    loadNotesFromLocalStorage();
 };
+
